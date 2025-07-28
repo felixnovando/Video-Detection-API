@@ -2,16 +2,19 @@ import { Router } from 'express';
 
 export interface APIRouter {
     router: Router;
-    getRouter: () => Router;
+    setRouter: () => void;
+    getRouter: () => Router
 }
 
-export class BaseRouter implements APIRouter {
+export abstract class BaseRouter implements APIRouter {
     router: Router;
-    constructor(router: Router) {
-        this.router = router;
+    constructor () {
+        this.router = Router();
+        this.setRouter();
     }
-    
-    getRouter () {
+    abstract setRouter(): void;
+
+    public getRouter = () => {
         return this.router;
     }
 }
