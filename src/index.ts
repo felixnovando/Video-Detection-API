@@ -24,9 +24,9 @@ app.use(express.json());
 
 // local data
 const localData: LocalData = {
-    alerts: [],
-    detections: [],
-    frames: []
+    alerts: new Map(),
+    detections: new Map(),
+    frames: new Map()
 };
 
 // repositories
