@@ -1,8 +1,8 @@
 import { Request, Response } from 'express';
-import { APIBaseResponse, Status } from '../types';
 import { BaseRouter } from './router';
 import { DetectionService } from '../services/api/detection.service.api';
 import { InsertFrameDTO } from '../dto';
+import { ResponseHelper } from '../utils/responseHelper';
 
 export class FrameRouter extends BaseRouter{    
     private detectionService: DetectionService;
@@ -21,20 +21,10 @@ export class FrameRouter extends BaseRouter{
             const data: InsertFrameDTO[] = req.body;
             this.detectionService.receiveFrames(data);
 
-            const response: APIBaseResponse<null> =  {
-                data: null,
-                status: Status.SUCCESS,
-                message: null
-            };
-            res.json(response);
+            res.json(ResponseHelper.success(null));
         } catch (error) {
-            const errorMessage = `Failed in receiveFrame, ${error}`
-            const response: APIBaseResponse<null> = {
-                data: null,
-                status: Status.FAILED,
-                message: errorMessage
-            }
-            res.status(500).json(response);
+            const errorMessage = `Failed in receiveFrame, ${error}`;
+            res.status(500).json(ResponseHelper.fail(errorMessage));
         }
     }
 }
