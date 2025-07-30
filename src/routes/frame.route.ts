@@ -19,7 +19,7 @@ export class FrameRouter extends BaseRouter{
     private async receiveFrame(req: Request, res: Response) {
         try {
             const data: InsertFrameDTO[] = req.body;
-            this.detectionService.receiveFrames(data);
+            await this.detectionService.receiveFrames(data);
 
             res.json(ResponseHelper.success(null));
         } catch (error) {
