@@ -1,10 +1,10 @@
 import { Detection } from "./detection";
 
 export type Frame = {
-    frameId: string;
+    id: string;
     timestamp: string;
-    frameUrl: string;
-    frameWidth: string;
-    frameHeight: number;
-    detections: Detection[];
+    url: string;
+    width: number;
+    height: number;
+    detections?: Detection[];
 }

@@ -1,12 +1,9 @@
 import { DetectionTypes } from "../types";
-import { Frame } from "./frame";
 
-export interface Detection{
-    id: string;
+export interface InsertDetectionDTO {
     type: DetectionTypes;
     confidence: number;
     boundingBox: number[];
-    metadata: Record<string, string>;
+    metadata: string;
     frameId: string;
-    frame?: Frame;
-}
+};

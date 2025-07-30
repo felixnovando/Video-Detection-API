@@ -4,7 +4,7 @@ export enum Status{
 }
 
 export interface APIBaseResponse<T>{
-    data: T;
+    data: T | null;
     status: Status;
     message: string | null;
 }

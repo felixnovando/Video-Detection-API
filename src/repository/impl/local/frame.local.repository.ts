@@ -7,12 +7,18 @@ export class FrameRepositoryLocal implements FrameRepository, AccessLocalData {
     constructor(data: LocalData) {
         this.data = data;
     }
+
+    async getFrame(id: string) {
+        const result = this.data.frames.get(id);
+        return result ?? null;
+    }
     
-    async getAllFrames(): Promise<Frame[]> {
-        return [];
+    async getAllFrames() {
+        return [...this.data.frames.values()];
     }
 
-    insertFrames(frames: Frame[]) {
-
+    async insertFrame(frame: Frame) {
+        this.data.frames.set(frame.id, frame);
+        return frame;
     }
 }

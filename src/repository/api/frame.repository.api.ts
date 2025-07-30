@@ -2,5 +2,6 @@ import { Frame } from "../../models";
 
 export interface FrameRepository {
     getAllFrames: () => Promise<Frame[]>;
-    insertFrames: (frames: Frame[]) => void;
+    getFrame: (id: string) => Promise<Frame | null>
+    insertFrame: (frames: Frame) => Promise<Frame>;
 }
