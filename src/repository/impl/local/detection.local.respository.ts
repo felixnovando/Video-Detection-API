@@ -9,11 +9,6 @@ export class DetectionRepositoryLocal implements DetectionRepository, AccessLoca
         this.data = data;
     }
 
-    async getDetection(id: string){
-        const result = this.data.detections.get(id);
-        return result ?? null;
-    }
-
     async getAllDetections() {
         return [...this.data.detections.values()].map(detection => ({
             ...detection,
@@ -32,10 +27,10 @@ export class DetectionRepositoryLocal implements DetectionRepository, AccessLoca
         return results;
     }
 
-    async getDetectionsAroundTimestamp(timestamp: string, s: number){
+    async getDetectionsAroundTimestamp(timestamp: string, seconds: number){
         const frameIdMap: Record<string, boolean> = {};
         for(const frame of this.data.frames.values()){
-            if(this.isWithinNSecond(timestamp, frame.timestamp, s)){
+            if(this.isWithinNSecond(timestamp, frame.timestamp, seconds)){
                 frameIdMap[frame.id] = true;
             }
         }
