@@ -46,6 +46,10 @@ export class DetectionServiceImpl implements DetectionService {
                 }
             }
         }
+        if(validDetections.length === 0) {
+            return;
+        }
+
         // insert detections
         const insertedDetections = await this.detectionRepository.insertDetections(validDetections);
         
