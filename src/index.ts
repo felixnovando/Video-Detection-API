@@ -1,9 +1,9 @@
 import dotenv from "dotenv";
 import express from "express";
 
-import { AlertRouter } from "./routes/alert.route";
-import { DetectionRouter } from "./routes/detection.route";
-import { FrameRouter } from "./routes/frame.route";
+import { AlertRouter } from "./routes/alert.router";
+import { DetectionRouter } from "./routes/detection.router";
+import { FrameRouter } from "./routes/frame.router";
 import { APIRouter } from "./routes/router";
 import { AlertRepositoryLocal } from "./repository/impl/local/alert.local.repository";
 import { AlertRepository } from "./repository/api/alert.repository.api";
