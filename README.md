@@ -7,7 +7,7 @@ An Express.js API for managing frames, detections, and alerts in a video-based d
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/your-username/video-detection-api.git
+   git clone https://github.com/felixnovando/Video-Detection-API.git
    cd video-detection-api
    ```
 
